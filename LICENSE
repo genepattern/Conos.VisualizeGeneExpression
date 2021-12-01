@@ -2,7 +2,7 @@
        *** GENEPATTERN LICENSE AGREEMENT ***
 
 ----------------------------------------------------------------
-The GenePattern ExampleModule is distributed under the following BSD-style license:
+The GenePattern Conos.VisualizeGeneExpression is distributed under the following BSD-style license:
 
 Copyright (c) 2003-2021 Regents of the University of California and Broad Institute. All rights reserved.
 
@@ -37,4 +37,3 @@ If, by operation of law or otherwise, any of the aforementioned warranty disclai
 are determined inapplicable, your sole remedy, regardless of the form of action,
 including, but not limited to, negligence and strict liability, shall be replacement
 of the software with an updated version if one exists.
-
