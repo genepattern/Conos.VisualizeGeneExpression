@@ -1,10 +1,10 @@
-# Conos.VisualizeGeneExpression  urn:lsid:genepattern.org:genepatternmodules:00423:2
-#Wed Dec 01 01:28:03 UTC 2021
+#Conos.VisualizeGeneExpression
+#Fri Mar 11 18:20:10 UTC 2022
 JVMLevel=
-LSID=urn\:lsid\:genepattern.org\:genepatternmodules\:00423\:2
+LSID=urn\:lsid\:genepattern.org\:genepatternmodules\:00423\:3
 author=Edwin F. Juarez;UCSD - Mesirov Lab
 categories=single-cell;singlecell
-commandLine=<libdir>run_conos_visualizegeneexpression.R --conos_object <conos_object> --genesofinterest <genesofinterest> --clustering <clustering> --output_file_name <output_file_name>
+commandLine=Rscript --no-save --quiet --slave --no-restore <libdir>run_conos_visualizegeneexpression.R --conos_object <conos_object> --genesofinterest <genesofinterest> --clustering <clustering> --output_file_name <output_file_name>
 cpuType=any
 description=This is a minimalistic implementation of visualization options for Conos. This module is intended to be used after <a href\="https\://cloud.genepattern.org/gp/pages/index.jsf?lsid\=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00410\:0.1">Conos.Cluster</a> has been ran.
 documentationUrl=https\://github.com/genepattern/Conos.VisualizeGeneExpression/blob/develop/documentation.md

@@ -31,7 +31,7 @@ parser <- add_option(parser, c("--output_file_name"),type='character',default='C
 # ====================================
 # PARAMETERS for Leiden
 parser <- add_option(parser, c("--genesofinterest"),type='character',default='', help = "A list of gene identifiers. The expression of these genes will be plotted on the embedded map. Gene names need to be separated by a coma and a space (e.g. MS4A1, CD74, LYZ, CD14)")
-parser <- add_option(parser, c("--clustering"),type='character', default='None', help = "Option to show clustering information besides gene expression (None, ).")
+parser <- add_option(parser, c("--clustering"),type='character', default='None', help = "Option to show clustering information besides gene expression (none, leiden, walktrap, both).")
 # ====================================
 print('==========================================================')
 args <- parse_args(parser)
@@ -40,7 +40,7 @@ print(args)
 print('==========================================================')
 # ====================================
 # Setting up the PDF file for the plots
-pdf(file=paste(args$output_file_name,'.pdf',sep=''))
+# pdf(file=paste(args$output_file_name,'.pdf',sep=''))
 
 # Restore the object
 
@@ -52,7 +52,7 @@ pdf(file=paste(args$output_file_name,'.pdf',sep=''))
 #   "output_var": { "hide": "True" } }}
 
 customplot <- function(geneofinterest,clustering){
-    cat("Creating graphs...")
+    cat(paste("↳Creating graphs for gene ", geneofinterest,'...', sep=''))
     
     if (clustering == "none"){
     print(con$plotPanel(color.by='gene', gene=paste0(geneofinterest), embedding=embeddings))}
@@ -104,10 +104,18 @@ if (!is.null(con$samples[[1]]@reductions$umap)){
   embeddings <- 'umap'} else {embeddings <- 'tsne'
 }
 print('...done!')
-cat('Making polots now...')
+print('Making polots now...')
 # Run for each gene in the list
 for (gene in unlist(strsplit(args$genesofinterest, ', '))){
+  
+  if (args$clustering == "none"){
+    png(file=paste(args$output_file_name,'_',gene,'.png',sep=''), width = 1600, height = 1600)
+  } else if (runleiden == TRUE & runwalktrap == TRUE & args$clustering == "both"){
+    png(file=paste(args$output_file_name,'_',gene,'.png',sep=''), width = 1600, height = 1600)
+  }else{
+    png(file=paste(args$output_file_name,'_',gene,'.png',sep=''), width = 1600, height = 900)
+  }
   customplot(gene,args$clustering)
+  dev.off()
 }
 print('...done!')
-dev.off()
