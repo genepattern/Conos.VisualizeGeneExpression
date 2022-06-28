@@ -102,10 +102,12 @@ data_source <- conos_object$data_source
 
 if ("Pagoda2" %in% class(con$samples[[1]])) {
   embeddings <- NULL
-} else if (!is.null(con$samples[[1]]@reductions$umap)) {
- embeddings <- "umap"
 } else {
- embeddings <- "tsne"
+    if (!is.null(con$samples[[1]]@reductions$umap)) {
+    embeddings <- "umap"
+    } else {
+    embeddings <- "tsne"
+    }
 }
 print('...done!')
 print('Making polots now...')
