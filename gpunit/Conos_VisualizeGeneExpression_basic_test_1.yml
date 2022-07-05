@@ -1,0 +1,23 @@
+# Run this gpunit loccaly by calling:
+# ant -f ${GPUNIT_HOME}/build.xml -Dgpunit.diffStripTrailingCR="--strip-trailing-cr" -Dgp.host="127.0.0.1" -Dgp.url="http://127.0.0.1:8080" -Dgp.user="edjuaro@gmail.com" -Dgp.password="" -Dgpunit.testfolder=`pwd` gpunit
+# OR using gp-beta-ami:
+# ant -f ${GPUNIT_HOME}/build.xml -Dgpunit.diffStripTrailingCR="--strip-trailing-cr" -Dgp.host="gp-beta-ami.genepattern.org" -Dgp.url="https://gp-beta-ami.genepattern.org" -Dgp.user="edjuaro" -Dgp.password="**PUT_PASSWORD_HERE" -Dgpunit.testfolder=`pwd` gpunit
+
+#
+# Note: this test uses a custom diff command
+#
+
+name: "Conos_VisualizeGeneExpression_basic_test_1"
+module: "Conos.VisualizeGeneExpression"
+params:
+    conos_object: "./input/conos_cluster_output.rds"
+    genesofinterest: "MS4A1, CD74, LYZ, CD14"
+    clustering: "none"
+    output_file_name: "ConosMarkers"
+assertions:
+    jobStatus: success
+    files:
+      ConosMarkers_CD14.png: !!null
+      ConosMarkers_CD74.png: !!null
+      ConosMarkers_LYZ.png: !!null
+      ConosMarkers_MS4A1.png: !!null
