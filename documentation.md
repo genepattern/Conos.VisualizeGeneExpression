@@ -38,7 +38,7 @@ package version 1.4.4.
 #### genesofinterest
 - Default: [blank]
 - Required: Yes
-- Description: A list of gene identifiers. The expression of these genes will be plotted on the embedded map. Gene names need to be separated by a coma and a space (e.g. MS4A1, CD74, LYZ, CD14).
+- Description: A list of gene identifiers. The expression of these genes will be plotted on the embedded map. Gene names need to be separated by a coma and a space (e.g. MS4A1, CD74, LYZ, CD14) and match the identifiers used in the original input data (Gene Symbols, Ensembl IDs, etc).
 
 #### clustering
 - Default: none
